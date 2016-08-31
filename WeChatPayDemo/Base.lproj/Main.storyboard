@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TO8-WK-8le">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaC-Pd-YzW">
+                                <rect key="frame" x="120" y="266" width="80" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="支付订单"/>
+                                <connections>
+                                    <action selector="payAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Duu-cO-LGL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.本Demo只是做一个体验和演示,发起支付的流程 2.下单和签名、查单和支付通知均在服务器后台实现，请参考后台SDK代码。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaM-wy-p8k">
+                                <rect key="frame" x="8" y="164" width="304" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="377" id="QA7-EX-YMc"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="jzj-Wa-95P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QA7-EX-YMc"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TaC-Pd-YzW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Oc8-Gt-j1e"/>
+                            <constraint firstItem="TaC-Pd-YzW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZYn-9H-Dp5"/>
+                            <constraint firstItem="AaM-wy-p8k" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="b3b-k9-tQa"/>
+                            <constraint firstAttribute="trailing" secondItem="AaM-wy-p8k" secondAttribute="trailing" constant="8" id="gKJ-TB-VwL"/>
+                            <constraint firstItem="AaM-wy-p8k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="wYR-3k-mMs"/>
+                            <constraint firstItem="AaM-wy-p8k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yrx-Bm-t4m"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iDk-GH-qP2"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="payButton" destination="TaC-Pd-YzW" id="c6r-Pu-AuM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166" y="397"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lXl-oO-xoN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TO8-WK-8le" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cej-K8-GRB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="A0m-3a-Pub"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MxT-3h-ONp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="1059"/>
+        </scene>
+    </scenes>
+</document>
