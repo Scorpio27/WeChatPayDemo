@@ -40,6 +40,7 @@
 }
 
 - (NSString *)jumpToBizPay {
+    
     //根据查询微信API文档，我们需要添加两个需要的判断
     //判断是否安装了微信
     if (![WXApi isWXAppInstalled]) {
@@ -51,14 +52,8 @@
     }
     
     NSLog(@"安装了微信，而且微信支持支付");
-    
-    
-    
-    //============================================================
-    // V3&V4支付流程实现
-    // 注意:参数配置请查看服务器端Demo
-    // 更新时间：2015年11月20日
-    //============================================================
+
+    //支付流程实现
     NSString *urlString   = @"http://wxpay.weixin.qq.com/pub_v2/app/app_pay.php?plat=ios";
     //解析服务端返回json数据
     NSError *error;
@@ -78,13 +73,13 @@
                 NSMutableString *stamp  = [dict objectForKey:@"timestamp"];
                 
                 //调起微信支付
-                PayReq* req             = [[PayReq alloc] init];
-                req.partnerId           = [dict objectForKey:@"partnerid"];
-                req.prepayId            = [dict objectForKey:@"prepayid"];
-                req.nonceStr            = [dict objectForKey:@"noncestr"];
-                req.timeStamp           = stamp.intValue;
-                req.package             = [dict objectForKey:@"package"];
-                req.sign                = [dict objectForKey:@"sign"];
+                PayReq *req= [[PayReq alloc] init];
+                req.partnerId = [dict objectForKey:@"partnerid"];
+                req.prepayId = [dict objectForKey:@"prepayid"];
+                req.nonceStr = [dict objectForKey:@"noncestr"];
+                req.timeStamp = stamp.intValue;
+                req.package = [dict objectForKey:@"package"];
+                req.sign  = [dict objectForKey:@"sign"];
                 [WXApi sendReq:req];
                 //日志输出
                 NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
